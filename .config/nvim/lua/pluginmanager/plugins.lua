@@ -1,12 +1,13 @@
 local plugins = {
     'EdenEast/nightfox.nvim',
+    "nvim-lua/plenary.nvim",
 
     {
         'nvim-lualine/lualine.nvim',
         opts = {
             options = {
                 icons_enabled = true,
-                theme = 'nordfox',
+                theme = 'nord',
                 component_separators = '|',
                 section_separators = '',
             },
@@ -15,7 +16,7 @@ local plugins = {
     },
 
     -- LspConfig
-    -- 'jose-elias-alvarez/null-ls.nvim',
+    'jose-elias-alvarez/null-ls.nvim',
     {
         'neovim/nvim-lspconfig',
         dependencies = {
@@ -35,6 +36,7 @@ local plugins = {
             pcall(require('nvim-treesitter.install').update { with_sync = true })
         end,
     },
+    'fatih/vim-go',
 
     -- Git related plugins
     'tpope/vim-fugitive',

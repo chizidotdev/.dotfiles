@@ -59,15 +59,22 @@ C.telescope = function()
     set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
 end
 
--------------------------- [[ Telescope ]] --------------------------
+-------------------------- [[ Gitsigns ]] --------------------------
 C.gitsigns = function()
     set('n', '<leader>gb', require('gitsigns').blame_line, { desc = '[G]it [B]lame line' })
 end
 
--------------------------- [[ Telescope ]] --------------------------
+-------------------------- [[ Copilot ]] --------------------------
 C.copilot = function()
-    -- vim.g.copilot_no_tab_map = true
-    set("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
-    set("i", "<Tab>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+    local opts = { silent = true, expr = true }
+    vim.g.copilot_no_tab_map = true
+    vim.g.copilot_assume_mapped = true
+
+    set("i", "<Tab>", 'copilot#Accept("<CR>")', opts)
+    set("i", "<C-J>", 'copilot#Accept("<CR>")', opts)
+    -- set("i", "<C-H>", 'copilot#Previous()', opts)
+    -- set("i", "<C-K>", 'copilot#Next()', opts)
+    -- vim.api.nvim_set_keymap("i", "<C-Tab>", 'copilot#Accept("<CR>")')
 end
+
 return C

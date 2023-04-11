@@ -2,7 +2,6 @@ require('nvim-tree').setup({
     filters = {
         dotfiles = false,
     },
-    auto_close = true,
     disable_netrw = true,
     hijack_netrw = true,
     hijack_cursor = true,
@@ -13,7 +12,7 @@ require('nvim-tree').setup({
         update_root = false,
     },
     view = {
-        adaptive_size = true,
+        adaptive_size = false,
         side = 'left',
         width = 35,
         hide_root_folder = true,

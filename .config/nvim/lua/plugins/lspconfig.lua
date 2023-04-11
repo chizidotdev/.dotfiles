@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         set('n', '<leader>rn', vim.lsp.buf.rename, opts)
         set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
         set('n', 'gr', vim.lsp.buf.references, opts)
-        set('n', '<leader>f', function()
+        set({'n', 'v'}, '<leader>f', function()
             vim.lsp.buf.format { async = true }
         end, opts)
     end,

@@ -1,5 +1,3 @@
-require('copilot').setup()
-
 vim.g.copilot_filetypes = {
 	["*"] = false,
 	["javascript"] = true,
@@ -13,3 +11,5 @@ vim.g.copilot_filetypes = {
 	["go"] = true,
 	["python"] = true,
 }
+
+require('keymaps').copilot()
