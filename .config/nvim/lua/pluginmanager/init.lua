@@ -15,3 +15,15 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = require 'pluginmanager.plugins'
 require('lazy').setup(plugins)
+
+require 'pluginmanager.config.lualine'
+
+require 'pluginmanager.config.nvimtree'
+require 'pluginmanager.config.telescope'
+
+require 'pluginmanager.config.lspconfig'
+require 'pluginmanager.config.treesitter'
+require 'pluginmanager.config.cmp'
+require 'pluginmanager.config.luasnip'
+require 'pluginmanager.config.prettier'
+require 'pluginmanager.config.copilot'

@@ -17,7 +17,7 @@ opt.softtabstop = 4
 opt.hlsearch = false
 
 -- Set cursor type in insert mode to block
--- opt.guicursor = ''
+opt.guicursor = ''
 
 -- Sync clipboard between OS and Neo
 opt.clipboard = 'unnamedplus'
