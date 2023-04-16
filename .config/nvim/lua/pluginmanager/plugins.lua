@@ -37,6 +37,7 @@ local plugins = {
         end,
     },
     'fatih/vim-go',
+    'MunifTanjim/prettier.nvim',
 
     -- Git related plugins
     'tpope/vim-fugitive',

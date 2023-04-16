@@ -64,13 +64,18 @@ C.gitsigns = function()
     set('n', '<leader>gb', require('gitsigns').blame_line, { desc = '[G]it [B]lame line' })
 end
 
+-------------------------- [[ Prettier Format ]] --------------------------
+C.prettier = function()
+    set({'n', 'v'}, '<leader>pf', require('prettier').format, { desc = '[G]it [B]lame line' })
+end
+
 -------------------------- [[ Copilot ]] --------------------------
 C.copilot = function()
     local opts = { silent = true, expr = true }
     vim.g.copilot_no_tab_map = true
     vim.g.copilot_assume_mapped = true
 
-    set("i", "<Tab>", 'copilot#Accept("<CR>")', opts)
+    -- set("i", "<Tab>", 'copilot#Accept("<CR>")', opts)
     set("i", "<C-J>", 'copilot#Accept("<CR>")', opts)
     -- set("i", "<C-H>", 'copilot#Previous()', opts)
     -- set("i", "<C-K>", 'copilot#Next()', opts)

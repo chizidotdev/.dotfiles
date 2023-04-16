@@ -11,6 +11,7 @@ require 'plugins.lspconfig'
 require 'plugins.treesitter'
 require 'plugins.cmp'
 require 'plugins.luasnip'
+require 'plugins.prettier'
 require 'plugins.copilot'
 
 require 'keymaps'.gitsigns()
