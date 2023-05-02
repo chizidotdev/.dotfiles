@@ -1,6 +1,8 @@
 local plugins = {
     'EdenEast/nightfox.nvim',
-    "nvim-lua/plenary.nvim",
+    { 'olivercederborg/poimandres.nvim', opts = {} },
+    'nvim-lua/plenary.nvim',
+    { 'xiyaowong/transparent.nvim',      opts = {} },
 
     {
         'nvim-lualine/lualine.nvim',
@@ -90,6 +92,9 @@ local plugins = {
             },
         },
     },
+
+    -- Testing
+    { 'vim-test/vim-test',             opt = {} },
 
     { 'numToStr/Comment.nvim',         opts = {} },
     { 'folke/which-key.nvim',          opts = {} },
