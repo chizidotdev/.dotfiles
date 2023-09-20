@@ -66,7 +66,7 @@ end
 
 -------------------------- [[ Prettier Format ]] --------------------------
 C.prettier = function()
-    set({'n', 'v'}, '<leader>pf', require('prettier').format, { desc = '[G]it [B]lame line' })
+    set({'n', 'v'}, '<leader>pf', require('prettier').format, { desc = '[P]rettier [F]ormat' })
 end
 
 -------------------------- [[ Copilot ]] --------------------------

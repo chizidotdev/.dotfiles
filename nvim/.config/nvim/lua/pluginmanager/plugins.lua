@@ -1,9 +1,10 @@
 local plugins = {
     'EdenEast/nightfox.nvim',
+    'shaunsingh/nord.nvim',
     { 'olivercederborg/poimandres.nvim', opts = {} },
     'nvim-lua/plenary.nvim',
     { 'xiyaowong/transparent.nvim',      opts = {} },
-
+    'navarasu/onedark.nvim',
     {
         'nvim-lualine/lualine.nvim',
         opts = {
@@ -38,8 +39,10 @@ local plugins = {
             pcall(require('nvim-treesitter.install').update { with_sync = true })
         end,
     },
+    { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
     'fatih/vim-go',
     'MunifTanjim/prettier.nvim',
+    'evanleck/vim-svelte',
 
     -- Git related plugins
     'tpope/vim-fugitive',
@@ -61,7 +64,7 @@ local plugins = {
     -- File Navigation
     'nvim-tree/nvim-web-devicons',
     'nvim-tree/nvim-tree.lua',
-    { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+    { 'nvim-telescope/telescope.nvim',           version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
     {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
@@ -92,12 +95,13 @@ local plugins = {
             },
         },
     },
+    'windwp/nvim-ts-autotag',
 
     -- Testing
-    { 'vim-test/vim-test',             opt = {} },
+    { 'vim-test/vim-test',     opt = {} },
 
-    { 'numToStr/Comment.nvim',         opts = {} },
-    { 'folke/which-key.nvim',          opts = {} },
+    { 'numToStr/Comment.nvim', opts = {} },
+    { 'folke/which-key.nvim',  opts = {} },
     'github/copilot.vim',
 }
 

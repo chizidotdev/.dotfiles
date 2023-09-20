@@ -4,9 +4,9 @@ require('nvim-treesitter.configs').setup {
     ensure_installed = { 'go', 'lua', 'tsx', 'typescript', 'vimdoc', 'vim' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
+    auto_install = true,
 
-    highlight = { enable = true },
+    highlight = { enable = true }, -- , disable = { 'tsx' } },
     indent = { enable = true, disable = { 'python' } },
     incremental_selection = {
         enable = true,
@@ -19,7 +19,7 @@ require('nvim-treesitter.configs').setup {
     },
     textobjects = {
         select = {
-            enable = true,
+            -- enable = true,
             lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
             keymaps = {
                 -- You can use the capture groups defined in textobjects.scm
@@ -32,7 +32,7 @@ require('nvim-treesitter.configs').setup {
             },
         },
         move = {
-            enable = true,
+            -- enable = true,
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
                 [']m'] = '@function.outer',
@@ -52,7 +52,7 @@ require('nvim-treesitter.configs').setup {
             },
         },
         swap = {
-            enable = true,
+            -- enable = true,
             swap_next = {
                 ['<leader>a'] = '@parameter.inner',
             },
@@ -63,7 +63,7 @@ require('nvim-treesitter.configs').setup {
     },
     refactor = {
         highlight_definitions = {
-             enable = true,
+            enable = true,
             clear_on_cursor_move = true
         },
         -- highlight_current_scope = { enable = true },

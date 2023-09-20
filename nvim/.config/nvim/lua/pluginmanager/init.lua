@@ -27,3 +27,4 @@ require 'pluginmanager.config.cmp'
 require 'pluginmanager.config.luasnip'
 require 'pluginmanager.config.prettier'
 require 'pluginmanager.config.copilot'
+require('nvim-ts-autotag').setup()

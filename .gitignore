@@ -1,6 +1,0 @@
-*
-!.gitignore
-!.tmux.conf
-!.config/nvim
-!.config/fish
-!.config/i3

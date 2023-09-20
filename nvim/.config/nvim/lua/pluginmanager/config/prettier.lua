@@ -15,6 +15,7 @@ prettier.setup({
         "typescript",
         "typescriptreact",
         "yaml",
+        "sql",
     },
     cli_options = {
         -- arrow_parens = "always",
