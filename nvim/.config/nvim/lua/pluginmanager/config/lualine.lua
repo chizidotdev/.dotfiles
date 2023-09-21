@@ -28,7 +28,7 @@ local custom_theme = {
 require('lualine').setup {
     options = {
         -- theme = custom_theme,
-        theme = 'nordfox',
+        theme = 'nordic',
         component_separators = '|',
         section_separators = { left = '', right = '' },
         globalstatus = true,

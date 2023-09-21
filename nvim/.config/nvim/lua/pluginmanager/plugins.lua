@@ -1,6 +1,15 @@
 local plugins = {
+    -- Themes
     'EdenEast/nightfox.nvim',
     'shaunsingh/nord.nvim',
+    {
+        'AlexvZyl/nordic.nvim',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require 'nordic'.load()
+        end
+    },
     { 'olivercederborg/poimandres.nvim', opts = {} },
     'nvim-lua/plenary.nvim',
     { 'xiyaowong/transparent.nvim',      opts = {} },
@@ -10,7 +19,6 @@ local plugins = {
         opts = {
             options = {
                 icons_enabled = true,
-                theme = 'nord',
                 component_separators = '|',
                 section_separators = '',
             },
@@ -25,9 +33,13 @@ local plugins = {
         dependencies = {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-            { 'j-hui/fidget.nvim', opts = {} },
             { 'folke/neodev.nvim', opts = {} }
         },
+    },
+    {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        requires = 'neovim/nvim-lspconfig',
     },
     {
         'nvim-treesitter/nvim-treesitter',
@@ -41,6 +53,7 @@ local plugins = {
     },
     { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
     'fatih/vim-go',
+    'p00f/nvim-ts-rainbow',
     'MunifTanjim/prettier.nvim',
     'evanleck/vim-svelte',
 
@@ -64,7 +77,11 @@ local plugins = {
     -- File Navigation
     'nvim-tree/nvim-web-devicons',
     'nvim-tree/nvim-tree.lua',
-    { 'nvim-telescope/telescope.nvim',           version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+    {
+        'nvim-telescope/telescope.nvim',
+        version = '*',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
     {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
@@ -98,10 +115,10 @@ local plugins = {
     'windwp/nvim-ts-autotag',
 
     -- Testing
-    { 'vim-test/vim-test',     opt = {} },
+    { 'vim-test/vim-test',                       opt = {} },
 
-    { 'numToStr/Comment.nvim', opts = {} },
-    { 'folke/which-key.nvim',  opts = {} },
+    { 'numToStr/Comment.nvim',                   opts = {} },
+    { 'folke/which-key.nvim',                    opts = {} },
     'github/copilot.vim',
 }
 
