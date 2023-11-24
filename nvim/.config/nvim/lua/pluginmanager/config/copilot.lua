@@ -12,6 +12,8 @@ vim.g.copilot_filetypes = {
     ["python"] = true,
     ["markdown"] = true,
     ["sql"] = true,
+    ["scss"]= true,
+    ["css"]= true,
 }
 
 require('keymaps').copilot()

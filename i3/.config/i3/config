@@ -52,7 +52,8 @@ bindsym $mod+Return exec alacritty
 
 # start firefox
 bindsym $mod+b exec firefox
-
+# start idea
+bindsym $mod+i exec intellij-idea-ultimate
 # start chrome
 bindsym $mod+c exec google-chrome
 
@@ -200,8 +201,8 @@ bar {
 # default_floating_border pixel 0
 
 # Gaps
-gaps inner 10
-gaps outer 1
+# gaps inner 15
+# gaps outer 5
 for_window [class="^.*"] border pixel 2
 
 # Display polybar
@@ -212,6 +213,7 @@ exec_always feh --bg-fill /home/chizidotdev/Pictures/gopher.jpg
 
 # Assign Programs to Workspaces
 # for_window [class="chrome"] move to workspace $ws2
+for_window [class="firefox"] move to workspace $ws2
 for_window [class="alacritty"] move to workspace $ws1
 
 exec --no-startup-id /usr/lib/gsd-xsettings
