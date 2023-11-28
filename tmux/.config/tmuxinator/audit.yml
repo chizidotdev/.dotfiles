@@ -1,7 +1,7 @@
 # /home/chizidotdev/.config/tmuxinator/audit.yml
 
 name: audit
-root: ~/pp/auditfe/chizi-dev2
+root: ~/pp/auditfe/riskscorecard
 
 # Optional tmux socket
 # socket_name: foo
