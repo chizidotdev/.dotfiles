@@ -33,7 +33,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- set termguicolors to enable highlight groups
--- opt.termguicolors = true
+opt.termguicolors = true
 
 -- Enable mouse mode
 opt.mouse = 'a'
@@ -59,3 +59,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     group = highlight_group,
     pattern = '*',
 })
+
+-- Go syntax highlighting
+vim.api.nvim_set_var('go_highlight_structs', 1)
+vim.api.nvim_set_var('go_highlight_methods', 1)
+vim.api.nvim_set_var('go_highlight_functions', 1)
+vim.api.nvim_set_var('go_highlight_operators', 1)
+vim.api.nvim_set_var('go_highlight_build_constraints', 1)
+vim.api.nvim_set_var('go_highlight_extra_types', 1)
+vim.api.nvim_set_var('go_highlight_fields', 1)
+vim.api.nvim_set_var('go_highlight_types', 1)
+vim.api.nvim_set_var('go_auto_sameids', 1)

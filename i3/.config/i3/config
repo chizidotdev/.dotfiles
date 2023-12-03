@@ -50,12 +50,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
-# start firefox
-bindsym $mod+b exec firefox
+# start browser
+bindsym $mod+b exec google-chrome
 # start idea
 bindsym $mod+i exec intellij-idea-ultimate
-# start chrome
-bindsym $mod+c exec google-chrome
 
 # kill focused window
 bindsym $mod+q kill
@@ -157,6 +155,12 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# assign workspaces to windows
+workspace 1 output $fm
+workspace 2 output $fm
+workspace 3 output $sm
+workspace 4 output $sm
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -196,7 +200,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         i3bar_command i3bar --transparency
-        # position top
+        position top
 }
 # default_border pixel 0
 # default_floating_border pixel 0
@@ -212,17 +216,19 @@ for_window [class="^.*"] border pixel 2
 # Display Wallpaper
 exec_always feh --bg-fill /home/chizidotdev/Pictures/gopher.jpg
 
+# Open terminal
+exec alacritty
+
 # Assign Programs to Workspaces
-# for_window [class="chrome"] move to workspace $ws2
-for_window [class="firefox"] move to workspace $ws2
+# for_window [class="google-chrome"] move to workspace $ws2
+# for_window [class="firefox"] move to workspace $ws2
 for_window [class="alacritty"] move to workspace $ws1
+for_window [class="timedoctor2"] move to workspace $ws4
 
 exec --no-startup-id /usr/lib/gsd-xsettings
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
-exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
-workspace 1 output $fm
-workspace 2 output $fm
+# exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
 
 ## Screenshots
 bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i

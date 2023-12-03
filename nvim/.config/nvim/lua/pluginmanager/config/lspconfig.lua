@@ -39,8 +39,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason").setup {
+    registries = {
+        "github:mason-org/mason-registry@2023-05-15-next-towel"
+    }
+}
+require("mason-lspconfig").setup() 
 
 require("mason-lspconfig").setup_handlers {
     -- The first entry (without a key) will be the default handler

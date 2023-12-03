@@ -58,7 +58,7 @@ font:
     family: JetBrains Mono Nerd Font
     style: Bold Italic
 
-  size: 7
+  size: 6
 
 # Should display the render timer
 debug.render_timer: false
