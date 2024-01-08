@@ -1,6 +1,10 @@
 require('lspconfig')
 local set = vim.keymap.set
 
+-- require('lspconfig').gopls.setup({
+--     on_attach = on_attach,
+-- })
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 set('n', '<leader>e', vim.diagnostic.open_float)

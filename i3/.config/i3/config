@@ -200,7 +200,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
         i3bar_command i3bar --transparency
-        position top
+        # position top
 }
 # default_border pixel 0
 # default_floating_border pixel 0
