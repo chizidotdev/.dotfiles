@@ -213,6 +213,10 @@ for_window [class="^.*"] border pixel 2
 # Display polybar
 # exec_always ~/.config/polybar/launch.sh &
 
+# Enable HDMI-1
+exec_always xrandr --output HDMI-1 --auto --left-of eDP-1
+exec_always xrandr --auto
+
 # Display Wallpaper
 exec_always feh --bg-fill /home/chizidotdev/Pictures/gopher.jpg
 
@@ -227,8 +231,6 @@ for_window [class="timedoctor2"] move to workspace $ws4
 
 exec --no-startup-id /usr/lib/gsd-xsettings
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
-
-# exec --no-startup-id xrandr --output HDMI-1 --auto --left-of eDP-1
 
 ## Screenshots
 bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i

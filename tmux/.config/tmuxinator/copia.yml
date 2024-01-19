@@ -45,6 +45,7 @@ startup_window: stats
 # attach: false
 
 windows:
+  - editor: lvim .
   - logs: make server
   - stats:
       # layout: main-horizontal

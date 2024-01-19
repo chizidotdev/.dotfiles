@@ -52,7 +52,7 @@ local plugins = {
         end,
     },
     { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
-    'fatih/vim-go',
+    -- 'fatih/vim-go',
     'p00f/nvim-ts-rainbow',
     'MunifTanjim/prettier.nvim',
     'evanleck/vim-svelte',
