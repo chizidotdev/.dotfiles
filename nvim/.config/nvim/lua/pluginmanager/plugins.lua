@@ -2,17 +2,10 @@ local plugins = {
     -- Themes
     'EdenEast/nightfox.nvim',
     'shaunsingh/nord.nvim',
-    {
-        'AlexvZyl/nordic.nvim',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require 'nordic'.load()
-        end
-    },
+    { 'AlexvZyl/nordic.nvim',            opts = {} },
     { 'olivercederborg/poimandres.nvim', opts = {} },
     'nvim-lua/plenary.nvim',
-    { 'xiyaowong/transparent.nvim',      opts = {} },
+    { 'xiyaowong/transparent.nvim',              opts = {} },
     'navarasu/onedark.nvim',
     {
         'nvim-lualine/lualine.nvim',
@@ -115,10 +108,10 @@ local plugins = {
     'windwp/nvim-ts-autotag',
 
     -- Testing
-    { 'vim-test/vim-test',                       opt = {} },
+    { 'vim-test/vim-test',     opt = {} },
 
-    { 'numToStr/Comment.nvim',                   opts = {} },
-    { 'folke/which-key.nvim',                    opts = {} },
+    { 'numToStr/Comment.nvim', opts = {} },
+    { 'folke/which-key.nvim',  opts = {} },
     'github/copilot.vim',
 }
 

@@ -168,6 +168,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'Power off command, please confirm' -B 'Power off' 'systemctl poweroff' -B 'Suspend' 'systemctl suspend'"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -206,8 +208,8 @@ bar {
 # default_floating_border pixel 0
 
 # Gaps
-# gaps inner 15
-# gaps outer 5
+gaps inner 12
+gaps outer 8
 for_window [class="^.*"] border pixel 2
 
 # Display polybar
@@ -219,6 +221,7 @@ exec_always xrandr --auto
 
 # Display Wallpaper
 exec_always feh --bg-fill /home/chizidotdev/Pictures/gopher.jpg
+exec_always picom
 
 # Open terminal
 exec alacritty
