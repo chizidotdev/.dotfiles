@@ -35,7 +35,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+exec_always --no-startup-id nm-applet
+
+# Blueman is a GTK+ Bluetooth Manager with support for pairing, trust, and
+# reconnecting devices. It's designed to be easy to use and get out of your way.
+# blueman-applet is a standalone system tray (systray) icon for Blueman.
+exec_always --no-startup-id blueman-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -160,6 +165,7 @@ workspace 1 output $fm
 workspace 2 output $fm
 workspace 3 output $sm
 workspace 4 output $sm
+workspace 9 output $sm
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -208,8 +214,8 @@ bar {
 # default_floating_border pixel 0
 
 # Gaps
-gaps inner 12
-gaps outer 8
+gaps inner 8
+gaps outer 4
 for_window [class="^.*"] border pixel 2
 
 # Display polybar
@@ -223,14 +229,10 @@ exec_always xrandr --auto
 exec_always feh --bg-fill /home/chizidotdev/Pictures/gopher.jpg
 exec_always picom
 
-# Open terminal
-exec alacritty
-
 # Assign Programs to Workspaces
 # for_window [class="google-chrome"] move to workspace $ws2
 # for_window [class="firefox"] move to workspace $ws2
 for_window [class="alacritty"] move to workspace $ws1
-for_window [class="timedoctor2"] move to workspace $ws4
 
 exec --no-startup-id /usr/lib/gsd-xsettings
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
@@ -241,3 +243,6 @@ bindsym Ctrl+Print exec maim -i $(xdotool getactivewindow) | xclip -selection cl
 
 # Trackpad Touch to tap enabled
 exec_always xinput set-prop "SYNA3071:00 06CB:82F1 Touchpad" "libinput Tapping Enabled" 1
+
+# Open terminal
+exec alacritty
