@@ -1,0 +1,1 @@
+source "/home/chizidotdev/.deno/env.fish"

@@ -17,13 +17,25 @@ vim.opt.hlsearch = false
 lvim.plugins = {
     { 'AlexvZyl/nordic.nvim' },
     { 'olivercederborg/poimandres.nvim' },
-    { 'EdenEast/nightfox.nvim' },
     {
         'nvim-telescope/telescope-fzf-native.nvim',
         build = 'make',
         event = 'BufRead'
     },
-    { 'github/copilot.vim' },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("todo-comments").setup()
+        end,
+    },
+    -- { 'github/copilot.vim' },
+    {
+        "supermaven-inc/supermaven-nvim",
+        -- config = function()
+        --     require("supermaven-nvim").setup({})
+        -- end,
+    },
     { "mrjones2014/nvim-ts-rainbow" },
     {
         "windwp/nvim-ts-autotag",
@@ -33,6 +45,7 @@ lvim.plugins = {
     },
 }
 
+-- lvim.builtin.bufferline.active = false
 lvim.builtin.gitsigns.opts.current_line_blame = true
 lvim.builtin.nvimtree.setup.git.timeout = 1000
 lvim.builtin.nvimtree.setup.view.width = 40
@@ -49,6 +62,7 @@ lvim.colorscheme = "nordic"
 -- Keymaps
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Escape to Normal Mode' })
 lvim.keys.normal_mode["<Leader>sg"] = ":Telescope live_grep<CR>"
+lvim.keys.normal_mode["<Leader>x"] = ":NvimTreeCollapse<CR>"
 lvim.keys.normal_mode["<C-f>"] = "<C-f>zz"
 lvim.keys.normal_mode["<C-b>"] = "<C-b>zz"
 
@@ -127,4 +141,46 @@ configs.gopls = {
             root_dir = [[root_pattern("go.work", "go.mod", ".git")]],
         },
     },
+}
+
+-- Auto organize imports
+local function organize_imports()
+    local params = {
+        command = "_typescript.organizeImports",
+        arguments = { vim.api.nvim_buf_get_name(0) },
+        title = ""
+    }
+    vim.lsp.buf.execute_command(params)
+end
+
+local lsp_configs = require "lvim.lsp.manager"
+
+lsp_configs.setup("tsserver", {
+    commands = {
+        OrganizeImports = {
+            organize_imports,
+            description = "Organize Imports"
+        }
+    }
+})
+
+-- increase null-ls timeout to 5000ms
+lvim.builtin.which_key.mappings["l"]["f"] = {
+    function()
+        vim.lsp.format { timeout = 4000 }
+    end,
+    "LSP format",
+}
+
+-- Deno setup
+local nvim_lsp = require('lspconfig')
+nvim_lsp.denols.setup {
+    -- on_attach = on_attach,
+    root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+}
+
+nvim_lsp.tsserver.setup {
+    -- on_attach = on_attach,
+    root_dir = nvim_lsp.util.root_pattern("package.json"),
+    single_file_support = false
 }
