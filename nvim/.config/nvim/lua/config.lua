@@ -45,6 +45,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>q", ":q<CR>")
+vim.keymap.set("n", "<leader>pf", ":silent %!prettier --stdin-filepath %<CR>")
 
 --  Use CTRL+<hjkl> to switch between windows
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })

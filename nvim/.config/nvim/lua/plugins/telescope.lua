@@ -13,6 +13,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+		{ "jonarrien/telescope-cmdline.nvim" },
 	},
 
 	config = function()
@@ -26,6 +27,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
+		pcall(require("telescope").load_extension, "cmdline")
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
@@ -39,6 +41,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+		vim.keymap.set("n", ":", "<cmd>Telescope cmdline<cr>")
 
 		vim.keymap.set("n", "<leader>/", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
