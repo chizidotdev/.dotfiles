@@ -42,6 +42,9 @@ require("lazy").setup({
 	require("plugins.mini"),
 	require("plugins.treesitter"),
 
+	require("plugins.comment"),
+	{ "m4xshen/autoclose.nvim", opts = {} },
+
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },

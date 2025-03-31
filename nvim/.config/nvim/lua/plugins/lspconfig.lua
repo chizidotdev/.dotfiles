@@ -145,6 +145,9 @@ return { -- Main LSP Configuration
 					},
 				},
 			},
+			emmet_language_server = {
+				filetypes = { "html", "css", "javascriptreact", "typescriptreact", "svelte" },
+			},
 		}
 
 		local ensure_installed = vim.tbl_keys(servers or {})
