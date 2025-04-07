@@ -25,6 +25,7 @@ return { -- Main LSP Configuration
 				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("<leader>x", vim.diagnostic.open_float, "Show [E]rror in floating window")
 				-- map('<leader>bf', vim.lsp.buf.formatting, '[B]uffer [F]ormat')
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")

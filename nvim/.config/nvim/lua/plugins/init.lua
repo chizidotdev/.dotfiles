@@ -13,17 +13,21 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
+	require("plugins.themes"),
+	require("plugins.statusline"),
+	require("plugins.whichkey"),
 	require("plugins.gitsigns"),
 
 	{
 		"tpope/vim-fugitive",
 		config = function()
-			vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+			vim.keymap.set("n", "<leader>gt", vim.cmd.Git)
 		end,
 	},
 
 	require("plugins.telescope"),
 	require("plugins.harpoon"),
+	require("plugins.neotree"),
 
 	{
 		"folke/lazydev.nvim",
@@ -39,12 +43,11 @@ require("lazy").setup({
 	require("plugins.lspconfig"),
 	require("plugins.cmp"),
 	require("plugins.conform"),
-	require("plugins.mini"),
 	require("plugins.treesitter"),
-
 	require("plugins.comment"),
-	{ "m4xshen/autoclose.nvim", opts = {} },
 
+	{ "m4xshen/autoclose.nvim", opts = {} },
+	{ "windwp/nvim-ts-autotag", opts = {} },
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
@@ -56,14 +59,5 @@ require("lazy").setup({
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
-	},
-
-	{
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("nordic").load()
-		end,
 	},
 })
