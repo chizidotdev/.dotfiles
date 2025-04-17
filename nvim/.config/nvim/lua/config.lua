@@ -42,8 +42,12 @@ vim.opt.confirm = true
 --
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>w", ":w<CR>")
-vim.keymap.set("n", "<leader>q", ":q<CR>")
+vim.keymap.set("n", "<leader>w", function()
+	vim.cmd.write()
+end)
+vim.keymap.set("n", "<leader>q", function()
+	vim.cmd.quit()
+end)
 vim.keymap.set("n", "<leader>pf", ":silent %!prettier --stdin-filepath %<CR>")
 
 --  Use CTRL+<hjkl> to switch between windows

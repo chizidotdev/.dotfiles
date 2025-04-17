@@ -24,6 +24,7 @@ return { -- Autocompletion
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
+		"hrsh7th/cmp-cmdline",
 	},
 
 	config = function()
@@ -74,6 +75,22 @@ return { -- Autocompletion
 				{ name = "path" },
 				{ name = "nvim_lsp_signature_help" },
 			},
+		})
+
+		cmp.setup.cmdline("/", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = { { name = "buffer" } },
+		})
+
+		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources(
+				{ { name = "path" } },
+				{ {
+					name = "cmdline",
+					option = { { ignore_cmds = { "Man", "!" } } },
+				} }
+			),
 		})
 	end,
 }

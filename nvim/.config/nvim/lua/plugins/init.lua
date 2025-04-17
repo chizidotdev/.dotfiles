@@ -28,6 +28,7 @@ require("lazy").setup({
 	require("plugins.telescope"),
 	require("plugins.harpoon"),
 	require("plugins.neotree"),
+	require("plugins.noice"),
 
 	{
 		"folke/lazydev.nvim",

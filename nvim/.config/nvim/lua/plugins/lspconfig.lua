@@ -25,7 +25,11 @@ return { -- Main LSP Configuration
 				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-				map("<leader>x", vim.diagnostic.open_float, "Show [E]rror in floating window")
+
+				map("<leader>df", vim.diagnostic.open_float, "Show [D]iagnostic in [F]loat")
+				map("]d", vim.diagnostic.goto_next, "Next [D]iagnostic")
+				map("[d", vim.diagnostic.goto_prev, "Previous [D]iagnostic")
+
 				-- map('<leader>bf', vim.lsp.buf.formatting, '[B]uffer [F]ormat')
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -170,6 +174,37 @@ return { -- Main LSP Configuration
 					require("lspconfig")[server_name].setup(server)
 				end,
 			},
+		})
+
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			pattern = "*.go",
+			callback = function()
+				local params = vim.lsp.util.make_range_params()
+				params.context = { only = { "source.organizeImports" } }
+				local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 1000)
+				for _, res in pairs(result or {}) do
+					for _, action in pairs(res.result or {}) do
+						if action.edit then
+							vim.lsp.util.apply_workspace_edit(action.edit, "utf-8")
+						end
+					end
+				end
+			end,
+		})
+
+		-- Remove unused imports on save
+		vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+			group = vim.api.nvim_create_augroup("ts_imports", { clear = true }),
+			pattern = { "*.tsx,*.ts" },
+			callback = function()
+				vim.lsp.buf.code_action({
+					apply = true,
+					context = {
+						only = { "source.removeUnused.ts" },
+						diagnostics = {},
+					},
+				})
+			end,
 		})
 	end,
 }
