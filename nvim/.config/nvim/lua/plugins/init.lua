@@ -28,7 +28,7 @@ require("lazy").setup({
 	require("plugins.telescope"),
 	require("plugins.harpoon"),
 	require("plugins.neotree"),
-	require("plugins.noice"),
+	-- require("plugins.noice"),
 
 	{
 		"folke/lazydev.nvim",
@@ -61,4 +61,5 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
+	-- require("plugins.avante"),
 })
