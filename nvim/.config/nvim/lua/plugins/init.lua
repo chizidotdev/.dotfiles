@@ -49,11 +49,11 @@ require("lazy").setup({
 
 	{ "m4xshen/autoclose.nvim", opts = {} },
 	{ "windwp/nvim-ts-autotag", opts = {} },
-	{
+	--[[ {
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 		opts = {},
-	},
+	}, ]]
 
 	{
 		"folke/todo-comments.nvim",
@@ -61,5 +61,6 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
+	{ "github/copilot.vim" },
 	-- require("plugins.avante"),
 })
